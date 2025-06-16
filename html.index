@@ -1,0 +1,103 @@
+import zipfile
+import os
+
+html_code = """
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GreenBase</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+  h1, h2 { color: #2E8B57; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+  th { background-color: #3CB371; color: white; }
+  hr { margin: 30px 0; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+
+<h1>GreenBase – Nachhaltige Produktion in Regensburg</h1>
+
+<p>Willkommen bei GreenBase, deinem regionalen Anbieter für Algen, Vanille und CBD-Produkte aus nachhaltigem Anbau.</p>
+
+<hr>
+
+<h2>📦 Kooperation mit hin+weg (Deutsche Post AG)</h2>
+<p>
+Wir prüfen aktuell eine logistische Zusammenarbeit mit <strong>hin+weg</strong>, einer Initiative der <strong>Deutschen Post AG</strong>. Ziel: 
+Nachhaltiger Versand unserer Produkte – CO₂-neutral, schnell & regional vernetzt. Besonders spannend: Rücknahmeboxen, Retourenlösungen und das Netzwerk für Direktkunden.
+</p>
+
+<hr>
+
+<h2>📈 Gewinnkalkulation pro m² (Schätzung)</h2>
+<table>
+  <tr>
+    <th>Produkt</th>
+    <th>Ertrag pro m² / Jahr</th>
+    <th>Verkaufspreis/kg</th>
+    <th>Umsatz/m²</th>
+    <th>Produktionskosten/m²</th>
+    <th><strong>Gewinn/m²</strong></th>
+  </tr>
+  <tr>
+    <td>Algen (z. B. Spirulina)</td>
+    <td>4–6 kg</td>
+    <td>~ 80 €</td>
+    <td>320–480 €</td>
+    <td>~ 200 €</td>
+    <td><strong>120–280 €</strong></td>
+  </tr>
+  <tr>
+    <td>Vanille (Gewächshaus)</td>
+    <td>0.3–0.5 kg</td>
+    <td>~ 400–600 €</td>
+    <td>120–300 €</td>
+    <td>~ 150 €</td>
+    <td><strong>-30 bis 150 €</strong></td>
+  </tr>
+  <tr>
+    <td>CBD (Indoor-Hanfblüte)</td>
+    <td>0.5–1.2 kg</td>
+    <td>~ 250–400 €</td>
+    <td>125–480 €</td>
+    <td>~ 200 €</td>
+    <td><strong>-75 bis 280 €</strong></td>
+  </tr>
+</table>
+<p><i>Alle Angaben sind Näherungswerte und hängen stark von Sorte, Qualität, Marktpreis und Anbaumethode ab.</i></p>
+
+<hr>
+
+<h2>📄 Impressum</h2>
+<p>
+<strong>GreenBase</strong><br>
+Musterstraße 12<br>
+93047 Regensburg<br>
+Deutschland<br><br>
+
+Vertreten durch: Michael Mustermann<br>
+E-Mail: kontakt@greenbase.de<br>
+Telefon: +49 (0)123 4567890<br><br>
+
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+Michael Mustermann, gleiche Anschrift wie oben
+</p>
+<p>
+<strong>Haftungsausschluss:</strong> Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für externe Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+</p>
+
+</body>
+</html>
+"""
+
+# Pfad zum Speichern der ZIP-Datei
+zip_path = "/mnt/data/greenbase_website.zip"
+
+with zipfile.ZipFile(zip_path, 'w') as zipf:
+    zipf.writestr("index.html", html_code)
+
+zip_path
